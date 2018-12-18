@@ -2,6 +2,116 @@
 
 get_header(); ?>
 
+<h1>WP2Static diagnostics results</h1>
+<?php
+/*
+        WsLog::l( 'STARTING EXPORT: OS VERSION ' . php_uname() );
+        WsLog::l( 'STARTING EXPORT: WP URL ' . get_bloginfo( 'url' ) );
+        WsLog::l( 'STARTING EXPORT: WP SITEURL ' . get_option( 'siteurl' ) );
+        WsLog::l( 'STARTING EXPORT: PLUGIN VERSION ' . $this::VERSION );
+*/
+?>
+<table id="results">
+    <tr>
+        <td colspan="2">
+            <b>Setting</b>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            Site name:
+        </td>
+        <td>
+            <?php echo get_bloginfo( 'name' ); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            Site description:
+        </td>
+        <td>
+            <?php echo get_bloginfo( 'description' ); ?>
+        </td>
+    </tr>
+   <tr>
+        <td colspan="2">
+           <b>Settings on the server used for export</b> 
+        </td>
+    </tr>
+   <tr>
+        <td>
+            WordPress Home:
+        </td>
+        <td>
+            <?php echo get_bloginfo( 'url' ); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            WordPress Site URL:
+        </td>
+        <td>
+            <?php echo get_bloginfo( 'wpurl' ); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            WordPress version:
+        </td>
+        <td>
+            <?php echo get_bloginfo( 'version' ); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            PHP version:
+        </td>
+        <td>
+                <?php echo phpversion(); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            Operating System:
+        </td>
+        <td>
+                <?php echo phpversion(); ?>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            Time to generate static site:
+        </td>
+        <td>
+            <span id="last_site_generation_duration"></span>
+        </td>
+    </tr>
+
+
+</table>
+
+<div id="test_content_wrapper">
+
+    <hr>
+
+    <h3>Test: relative link to relative image</h3>
+
+    <a href="/relative_link_to_img.jpg">
+        <img src="/relative_link_to_img.jpg" />
+    </a>
+
+    <hr>
+
+    <h3>Test: full link to full path image</h3>
+
+    <a href="/full_link_to_img.jpg">
+        <img src="/full_link_to_img.jpg" />
+    </a>
+
+</div>
+
+
+
 <div class="wrap">
 	<?php if ( is_home() && ! is_front_page() ) : ?>
 		<header class="page-header">
