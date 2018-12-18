@@ -1,0 +1,16 @@
+/*
+Theme Name: WP2Static diagnostics theme
+Theme URI: https://wp2static.com
+Author: Leon Stafford
+Author URI: https://leonstafford.github.io
+Description: Theme for testing WP2Static plugin
+Version: 0.1
+License: Unlicense
+License URI: http://unlicense.org
+Text Domain: wp2staticdiagnostics
+Tags: diagnostics
+*/
+
+body {
+  background-color: pink;
+}
