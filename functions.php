@@ -4,7 +4,7 @@ function wp2static_diagnostics_script_loader() {
     wp_enqueue_script(
         'wp2static-diagnostics',
         get_template_directory_uri() . '/js/run_diagnostics.js',
-        array (),
+        array( 'jquery' ),
         false, // will append current WP version
         false
     );
@@ -25,6 +25,18 @@ function wp2static_diagnostics_script_loader() {
         array (),
         false, // will append current WP version
         false
+    );
+
+    $uploads_info = wp_upload_dir();
+
+    $server_vars = array(
+        'wp_uploads_URL' => $uploads_info['baseurl'],
+    );
+
+    wp_localize_script(
+        'wp2static-diagnostics',
+        'server_vars',
+        $server_vars
     );
 }
 

@@ -88,93 +88,18 @@ get_header(); ?>
     </tr>
 </table>
 
-<script src="../../../../dist/2.7.3/Chart.bundle.js"></script>
-    <script src="../../utils.js"></script>
-    <style>
-    canvas{
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    }
-    </style>
+<style>
+canvas{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
 
 
 <div style="width:75%;">
     <canvas id="canvas"></canvas>
 </div>
-
-<script>
-        var config = {
-            type: 'line',
-            data: {
-                labels: ['01/12', '02/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12', '03/12'],
-                datasets: [{
-                    label: 'Seconds to generate static site',
-                    backgroundColor: window.chartColors.red,
-                    borderColor: window.chartColors.red,
-                    data: [
-                        0.03,
-                        0.02,
-                        0.12,
-                        0.12,
-                        0.12,
-                        0.12,
-                        0.12,
-                        0.07,
-                        0.08,
-                        0.08,
-                        0.08,
-                        0.08,
-                        0.08,
-                        0.04,
-                        0.01,
-                        0.01,
-                    ],
-                    fill: false,
-                }, 
-              ]
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Export durations with each build'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date'
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                          reverse: true
-                        },
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Export duration'
-                        }
-                    }]
-                }
-            }
-        };
-
-        window.onload = function() {
-            var ctx = document.getElementById('canvas').getContext('2d');
-            window.myLine = new Chart(ctx, config);
-        };
-    </script>
 
 <div id="test_content_wrapper">
 
