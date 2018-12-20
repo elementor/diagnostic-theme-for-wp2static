@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // update table with the last export duration
-    jQuery('#last_site_generation_duration').html('something');
+    jQuery('#last_site_generation_duration').html(
+      duration_datapoints.slice(-1)[0] +
+      ' seconds' 
+    );
  
     console.log(date_datapoints);
     console.log(duration_datapoints);

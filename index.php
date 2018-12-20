@@ -33,14 +33,6 @@ $fail_icon = get_template_directory_uri() . '/assets/images/fail-icon.png';
         </td>
     </tr>
    <tr>
-        <td>
-            Site description:
-        </td>
-        <td>
-            <?php echo get_bloginfo( 'description' ); ?>
-        </td>
-    </tr>
-   <tr>
         <td colspan="2">
            <b>Settings on the server used for export</b> 
         </td>
@@ -87,7 +79,7 @@ $fail_icon = get_template_directory_uri() . '/assets/images/fail-icon.png';
     </tr>
    <tr>
         <td>
-            Time to generate static site:
+            Latest generation:
         </td>
         <td>
             <span id="last_site_generation_duration"></span>
