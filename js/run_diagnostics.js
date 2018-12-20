@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var datapoint_lines = data.split( "\n" );
 
     jQuery.each(datapoint_lines, function(index, datapoint_line) {
+      if ( datapoint_line ) {
+        datapoint_set = datapoint_line.split( "," );
 
-      datapoint_set = datapoint_line.split( "," );
-
-      date_datapoints.push( datapoint_set[0]);
-      duration_datapoints.push( parseFloat( datapoint_set[1] ));
+        date_datapoints.push( datapoint_set[0]);
+        duration_datapoints.push( parseFloat( datapoint_set[1] ));
+      }
     });
 
     // update table with the last export duration
