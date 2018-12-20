@@ -25,11 +25,15 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    // update table with the last export duration
-    jQuery('#last_site_generation_duration').html(
-      duration_datapoints.slice(-1)[0] +
-      ' seconds' 
-    );
+    if (duration_datapoints === undefined || duration_datapoints.length == 0) {
+      jQuery('#last_site_generation_duration').html('No data available yet');
+    } else {
+      // update table with the last export duration
+      jQuery('#last_site_generation_duration').html(
+        duration_datapoints.slice(-1)[0] +
+        ' seconds' 
+      );
+    }
 
     var ctx = document.getElementById('chart').getContext('2d');
     window.myLine = new Chart(ctx, config);
