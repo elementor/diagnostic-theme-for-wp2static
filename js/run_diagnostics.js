@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var date_datapoints = [];
   var duration_datapoints = [];
 
-  datafile_url = server_vars.wp_uploads_URL + '/exports_data.txt';
+  datafile_url = server_vars.wp_URL + '/exports_data.txt';
 
   var jqxhr = jQuery.get( datafile_url, function( data ) {
     var datapoint_lines = data.split( "\n" );

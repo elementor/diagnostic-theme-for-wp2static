@@ -82,7 +82,7 @@ $fail_icon = get_template_directory_uri() . '/assets/images/fail-icon.png';
             Operating System:
         </td>
         <td>
-                <?php echo phpversion(); ?>
+                <?php echo php_uname(); ?>
         </td>
     </tr>
    <tr>

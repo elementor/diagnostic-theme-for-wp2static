@@ -36,6 +36,7 @@ function wp2static_diagnostics_script_loader() {
 
     $server_vars = array(
         'wp_uploads_URL' => $uploads_info['baseurl'],
+        'wp_URL' => get_bloginfo['url'],
     );
 
     wp_localize_script(
