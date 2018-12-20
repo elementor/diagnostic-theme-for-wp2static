@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
       duration_datapoints.slice(-1)[0] +
       ' seconds' 
     );
+
+    var ctx = document.getElementById('chart').getContext('2d');
+    window.myLine = new Chart(ctx, config);
  
     console.log(date_datapoints);
     console.log(duration_datapoints);
@@ -86,11 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
               }]
           }
       }
-  };
-
-  window.onload = function() {
-      var ctx = document.getElementById('chart').getContext('2d');
-      window.myLine = new Chart(ctx, config);
   };
 
   // JS functions for testing plugin output
