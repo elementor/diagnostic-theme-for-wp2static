@@ -1,6 +1,13 @@
 <?php
 
-get_header(); ?>
+get_header();
+
+ 
+$fail_icon = get_template_directory_uri() . '/assets/images/fail-icon.png';
+
+?>
+
+
 
 <h1>WP2Static diagnostics results</h1>
 <?php
@@ -103,27 +110,83 @@ canvas{
 
 <div id="test_content_wrapper">
 
+    <?php
+        /* 
+            function to write the original URL out in a way
+            that it won't be rewritten by the plugin
+        */
+
+        function preventRewritingURL( $url ) {
+            // surround dots with spaces
+            $url = str_replace( '.', ' . ', $url ); 
+
+            // surround slashes with spaces
+            $url = str_replace( '/', ' / ', $url ); 
+
+            return $url;
+        }
+    ?>
+
     <hr>
 
     <h3>Test: relative link to relative image</h3>
 
-    <a href="/relative_link_to_img.jpg">
-        <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-256x256.jpg'; ?>" />
+    <?php 
+        // get theme asset path without site URL
+        $asset_URL = get_template_directory_uri() . '/assets/images/icon-256x256.jpg';
+        $site_URL = get_bloginfo('url');
+
+        $relative_link_to_img = str_replace(
+            $site_URL,
+            '',
+            $asset_URL
+        );     
+
+    ?>
+
+    <a href="<?php echo $relative_link_to_img; ?>">
+        <img src="<?php echo $relative_link_to_img; ?>" style="height:30px;" />
     </a>
+
+    <p>
+        <code>
+            Original URL: <?php echo preventRewritingURL( $relative_link_to_img ); ?>
+        </code>
+    </p>
 
     <hr>
 
     <h3>Test: full link to full path image</h3>
 
-    <a href="/full_link_to_img.jpg">
-        <img src="/full_link_to_img.jpg" />
+    <?php
+
+        $full_link_to_img = get_template_directory_uri() . '/assets/images/icon-256x256.jpg';
+
+    ?>
+
+    <a href="<?php echo $full_link_to_img; ?>">
+        <img src="<?php echo $full_link_to_img; ?>" style="height:30px;" />
     </a>
+
+    <p>
+        <code>
+            Original URL: <?php echo preventRewritingURL( $full_link_to_img ); ?>
+        </code>
+    </p>
+
+    <hr>
 
     <h3>Test: URL in custom attribute</h3>
 
-    <a href="/full_link_to_img.jpg">
-        <img src="/full_link_to_img.jpg" />
+    <div id="div-with-link-in-custom-attr" custom-attr-in-div="<?php echo $full_link_to_img; ?>">
+        <img id="img-to-get-src-from-custom-attr" src="<?php echo $fail_icon; ?>" style="height:30px;" />
     </a>
+
+    <p>
+        <code>
+            Original URL: <?php echo preventRewritingURL( $full_link_to_img ); ?>
+        </code>
+    </p>
 
     <h3>Test: escaped URL</h3>
 

@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
       date_datapoints.push( datapoint_set[0]);
       duration_datapoints.push( datapoint_set[1]);
     });
+
+    // update table with the last export duration
+    jQuery('#last_site_generation_duration').html('something');
  
     console.log(date_datapoints);
     console.log(duration_datapoints);
@@ -76,5 +79,14 @@ document.addEventListener("DOMContentLoaded", function() {
       var ctx = document.getElementById('chart').getContext('2d');
       window.myLine = new Chart(ctx, config);
   };
+
+  // JS functions for testing plugin output
+
+  new_img_link = jQuery('#div-with-link-in-custom-attr')
+    .attr('custom-attr-in-div');
+
+  jQuery('#img-to-get-src-from-custom-attr')
+    .attr('src', new_img_link);
+
  
 });
