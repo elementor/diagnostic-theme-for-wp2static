@@ -97,8 +97,8 @@ canvas{
 </style>
 
 
-<div style="width:75%;">
-    <canvas id="canvas"></canvas>
+<div class="chart-container">
+    <canvas id="chart"></canvas>
 </div>
 
 <div id="test_content_wrapper">
@@ -108,12 +108,24 @@ canvas{
     <h3>Test: relative link to relative image</h3>
 
     <a href="/relative_link_to_img.jpg">
-        <img src="/relative_link_to_img.jpg" />
+        <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-256x256.jpg'; ?>" />
     </a>
 
     <hr>
 
     <h3>Test: full link to full path image</h3>
+
+    <a href="/full_link_to_img.jpg">
+        <img src="/full_link_to_img.jpg" />
+    </a>
+
+    <h3>Test: URL in custom attribute</h3>
+
+    <a href="/full_link_to_img.jpg">
+        <img src="/full_link_to_img.jpg" />
+    </a>
+
+    <h3>Test: escaped URL</h3>
 
     <a href="/full_link_to_img.jpg">
         <img src="/full_link_to_img.jpg" />

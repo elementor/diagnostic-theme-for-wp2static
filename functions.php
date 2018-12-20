@@ -1,6 +1,11 @@
 <?php
 
 function wp2static_diagnostics_script_loader() {
+    wp_enqueue_style(
+        'wp2static-style',
+        get_template_directory_uri() . '/style.css'
+    );
+
     wp_enqueue_script(
         'wp2static-diagnostics',
         get_template_directory_uri() . '/js/run_diagnostics.js',
