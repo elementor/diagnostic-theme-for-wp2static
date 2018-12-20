@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var date_datapoints = [];
   var duration_datapoints = [];
 
-  datafile_url = '/exports_data.txt';
+  datafile_url = '/exports_data.txt?cb=' +
+    Math.random().toString(36).replace(/[^a-z]+/g, '');
 
   var jqxhr = jQuery.get( datafile_url, function( data ) {
     var datapoint_lines = data.split( "\n" );
