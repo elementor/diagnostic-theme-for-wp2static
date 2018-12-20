@@ -1,3 +1,7 @@
+const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+];
+
 document.addEventListener("DOMContentLoaded", function() {
   var date_datapoints = [];
   var duration_datapoints = [];
@@ -11,7 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
       if ( datapoint_line ) {
         datapoint_set = datapoint_line.split( "," );
 
-        date_datapoints.push( datapoint_set[0]);
+        var date = new Date( datapoint_set[0] * 1000);
+
+        formatted_date = monthNames[date.getMonth()] + ' ' + date.getDate()
+
+        date_datapoints.push( formatted_date );
         duration_datapoints.push( parseFloat( datapoint_set[1] ));
       }
     });
