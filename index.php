@@ -7,17 +7,8 @@ $fail_icon = get_template_directory_uri() . '/assets/images/fail-icon.png';
 
 ?>
 
+<h1>WP2Static diagnostics and benchmarking</h1>
 
-
-<h1>WP2Static diagnostics results</h1>
-<?php
-/*
-        WsLog::l( 'STARTING EXPORT: OS VERSION ' . php_uname() );
-        WsLog::l( 'STARTING EXPORT: WP URL ' . get_bloginfo( 'url' ) );
-        WsLog::l( 'STARTING EXPORT: WP SITEURL ' . get_option( 'siteurl' ) );
-        WsLog::l( 'STARTING EXPORT: PLUGIN VERSION ' . $this::VERSION );
-*/
-?>
 <table id="results">
     <tr>
         <td colspan="2">
@@ -180,17 +171,36 @@ canvas{
         </code>
     </p>
 
-    <h3>Test: escaped URL</h3>
+    <hr>
 
-    <a href="/full_link_to_img.jpg">
-        <img src="/full_link_to_img.jpg" />
+    <?php
+
+        $escaped_full_link_to_img = 
+            addcslashes(
+                get_template_directory_uri() .
+                    '/assets/images/icon-256x256.jpg',
+            '/'
+        );
+    ?>
+
+    <h3>Test: escaped full link to image URL</h3>
+
+    <a href="<?php echo $escaped_full_link_to_img; ?>">
+        <img src="<?php echo $escaped_full_link_to_img; ?>" style="height:30px;" />
     </a>
+
+    <p>
+        <code>
+            Original URL: <?php echo preventRewritingURL( $escaped_full_link_to_img ); ?>
+        </code>
+    </p>
+
+    <hr>
 
 </div>
 
 
 
-<div class="wrap">
 	<?php if ( is_home() && ! is_front_page() ) : ?>
 		<header class="page-header">
 			<h1 class="page-title"><?php single_post_title(); ?></h1>
@@ -201,20 +211,9 @@ canvas{
 	</header>
 	<?php endif; ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
 			<?php
 			if ( have_posts() ) :
-
-				/* Start the Loop */
 				while ( have_posts() ) : the_post();
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
 					get_template_part( 'template-parts/post/content', get_post_format() );
 
 				endwhile;
@@ -227,9 +226,6 @@ canvas{
 			endif;
 			?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+<?php get_sidebar(); ?>
 
 <?php get_footer();
