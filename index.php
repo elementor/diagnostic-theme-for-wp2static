@@ -222,6 +222,24 @@ canvas{
 
     <hr>
 
+    <h3>Test: full image path in &lt;HEAD&gt; defined CSS</h3>
+
+
+    <a href="<?php echo $full_link_to_img; ?>">
+        <img id="inline_css_background_image" style="height:30px;" />
+    </a>
+
+    <hr>
+
+    <h3>Test: relative image path defined in linked CSS</h3>
+
+    <a href="<?php echo get_template_directory_uri() . '/style.css'; ?>" target="_blank">View CSS</a>
+
+    <a href="<?php echo $full_link_to_img; ?>">
+        <img id="linked_css_background_image" style="height:30px;" />
+    </a>
+
+    <hr>
 </div>
 
 

@@ -1,4 +1,25 @@
 <?php
+/*
+    Enable testing full paths in style.css by
+    rewriting placeholder with site's URL
+*/
+function rewrite_URLs_in_CSS() {
+    $css_file = get_template_directory() . '/style.css';
+
+    $css_contents = file_get_contents( $css_file );
+
+    $rewritten_CSS = str_replace(
+        'FULL_PATH_TO_THEME_DIR',
+        get_template_directory_uri(),
+        $css_contents
+    );
+
+    file_put_contents( $css_file, $rewritten_CSS );
+}
+
+rewrite_URLs_in_CSS();
+
+
 
 function wp2static_diagnostics_script_loader() {
     wp_enqueue_style(
