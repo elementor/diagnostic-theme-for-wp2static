@@ -45,9 +45,14 @@ h1 {
 
 
 #linked_css_background_image {
-    background: url('http://example.test/app/themes/diagnostic-theme-for-wp2static/assets/images/icon-256x256.jpg');
+    background: url('FULL_PATH_TO_THEME_DIR/assets/images/icon-256x256.jpg');
     background-size: 'contain';
     background-size: contain;
     background-repeat: no-repeat;
     display: block;
 }
+
+#dummy_url_detection {
+    background: url('FULL_PATH_TO_THEME_DIR/assets/images/EXPECTED_404_DISCOVERD_FROM_LINKED_CSS.jpg');
+}
+
