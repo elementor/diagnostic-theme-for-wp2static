@@ -175,10 +175,8 @@ canvas{
 
     <?php
 
-        $escaped_full_link_to_img = 
-            addcslashes(
-                get_template_directory_uri() .
-                    '/assets/images/icon-256x256.jpg',
+        $escaped_full_link_to_img = addcslashes(
+            $full_link_to_img,
             '/'
         );
     ?>
@@ -194,6 +192,33 @@ canvas{
             Original URL: <?php echo preventRewritingURL( $escaped_full_link_to_img ); ?>
         </code>
     </p>
+
+    <hr>
+
+    <h3>Test: link and image code block from YooTheme</h3>
+
+<a class="uk-navbar-item uk-logo" href="<?php echo get_bloginfo('url'); ?>">Link to site root</a>
+       <div class="tm-page">
+
+           <div class="tm-header-mobile uk-hidden@s">
+           
+
+   <nav class="uk-navbar-container" uk-navbar=""><div class="uk-navbar-center">
+           <a class="uk-navbar-item uk-logo" href="<?php echo get_bloginfo('url'); ?>">
+<img src="<?php echo $full_link_to_img; ?>" alt="Some alt text" style="height:30px;"></a>
+        </div>
+        
+                <div class="uk-navbar-right">
+
+            
+                        <a class="uk-navbar-toggle" href="#tm-mobile" uk-toggle="">
+                                <div uk-navbar-toggle-icon=""></div>
+            </a>
+            
+            
+        </div>
+        
+    </nav></div></div>
 
     <hr>
 
