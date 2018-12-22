@@ -43,9 +43,16 @@ h1 {
   clear: both;
 }
 
-
 #linked_css_background_image {
     background: url('http://example.test/app/themes/diagnostic-theme-for-wp2static/assets/images/icon-256x256.jpg');
+    background-size: 'contain';
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#relative_linked_css_background_image {
+    background: url('assets/images/icon-256x256.jpg');
     background-size: 'contain';
     background-size: contain;
     background-repeat: no-repeat;

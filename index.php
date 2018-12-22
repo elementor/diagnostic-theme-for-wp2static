@@ -197,7 +197,7 @@ canvas{
 
     <h3>Test: link and image code block from YooTheme</h3>
 
-<a class="uk-navbar-item uk-logo" href="<?php echo get_bloginfo('url'); ?>">Link to site root</a>
+<a class="uk-navbar-item uk-logo" href="<?php echo get_bloginfo('url'); ?>">Link to site root should be rewritten</a>
        <div class="tm-page">
 
            <div class="tm-header-mobile uk-hidden@s">
@@ -225,19 +225,37 @@ canvas{
     <h3>Test: full image path in &lt;HEAD&gt; defined CSS</h3>
 
 
+    <a href="<?php echo get_template_directory_uri() . '/style.css'; ?>" target="_blank">View #inline_css_background_image in CSS</a>
+
     <a href="<?php echo $full_link_to_img; ?>">
         <img id="inline_css_background_image" style="height:30px;" />
     </a>
 
     <hr>
 
-    <h3>Test: relative image path defined in linked CSS</h3>
+    <h3>Test: full image path defined in linked CSS</h3>
 
-    <a href="<?php echo get_template_directory_uri() . '/style.css'; ?>" target="_blank">View CSS</a>
+    <a href="<?php echo get_template_directory_uri() . '/style.css'; ?>" target="_blank">View #linked_css_background_image in CSS</a>
 
     <a href="<?php echo $full_link_to_img; ?>">
         <img id="linked_css_background_image" style="height:30px;" />
     </a>
+
+    <hr>
+
+    <h3>Test: relative image path defined in linked CSS</h3>
+
+    <a href="<?php echo get_template_directory_uri() . '/style.css'; ?>" target="_blank">View #relative_linked_css_background_image in CSS</a>
+
+    <a href='<?php echo get_template_directory_uri(); ?>/assets/images/icon-256x256.jpg'>
+        <img id="relative_linked_css_background_image" style="height:30px;" />
+    </a>
+
+    <p>
+        <code>
+            Original URL: <?php echo preventRewritingURL( "background: url('assets/images/icon-256x256.jpg');" ); ?>
+        </code>
+    </p>
 
     <hr>
 </div>
