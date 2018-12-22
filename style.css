@@ -63,3 +63,6 @@ h1 {
     background: url('http://example.test/app/themes/diagnostic-theme-for-wp2static/assets/images/EXPECTED_404_DISCOVERD_FROM_LINKED_CSS.jpg');
 }
 
+#dummy_SVG_within_background_image_rule {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath stroke=\'%23232C59\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/%3E%3C/svg%3E');
+}
